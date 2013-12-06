@@ -1,0 +1,8 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>se.kentor.lab</groupId>
+  <artifactId>storagecell</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>StorageCell</name>
+  <description>An educational project from Kentor showcasing Java Webservices with strong focus on An educational project from Kentor showcasing Java Web services with simple client using jQuery</description>
+</project>
