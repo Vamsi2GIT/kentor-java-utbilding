@@ -27,12 +27,9 @@ import javax.servlet.ServletContextEvent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import se.kentor.lab.storagecell.service.IStorageCellService;
 
 /**
  * Initializes context when starting up Web application (see WEB-INF/web.xml).
@@ -55,7 +52,7 @@ public class ApplicationContextLoaderListener extends ContextLoaderListener {
         log.info("======== Application :: Stopped ========");
     }
 
-
+    
     public static final WebApplicationContext getWebRequest(final ServletContext sc) {
         return WebApplicationContextUtils.getWebApplicationContext(sc);
     }

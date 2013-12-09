@@ -10,46 +10,27 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.fw.version>3.1.2.RELEASE</spring.fw.version>
-		<spring.data.version>1.4.2.RELEASE</spring.data.version>
-		<spring.orm.version>3.2.5.RELEASE</spring.orm.version>
+		<spring.data.version>1.4.2.RELEASE</spring.data.version>		
 		<hibernate.version>3.6.7.Final</hibernate.version>
-		<spring.security.version>3.1.2.RELEASE</spring.security.version>
 		<apache.cxf.version>2.5.7</apache.cxf.version>
 		<servlet-api.version>2.5</servlet-api.version>
-		<slf4j.version>1.6.4</slf4j.version>
-		<log4j.version>1.2.14</log4j.version>
 		<junit.version>4.7</junit.version>
 		<dozer.version>5.4.0</dozer.version>
-		<mysql.version>5.1.27</mysql.version>
 		<h2db.version>1.3.168</h2db.version>
-		<dbcp.version>1.4</dbcp.version>
-		<common.lang.version>2.4</common.lang.version>
-		<common.logging.version>1.1.1</common.logging.version>
-		<license.plugin.version>1.5.1</license.plugin.version>
-		<surefire.version>2.16</surefire.version>
-		<cxf-codegen.version>2.7.7</cxf-codegen.version>
-		<cobertura.version>2.5.2</cobertura.version>
-		<mockito.version>1.9.5</mockito.version>
-		<springtest.version>2.5</springtest.version>
+		<dbcp.version>1.4</dbcp.version>		
+		<springtest.version>3.1.2.RELEASE</springtest.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- Spring -->
+		<!-- Spring -->			
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.fw.version}</version>
-			<exclusions>
-				<!-- Exclude Commons Logging in favor of SLF4j -->
-				<exclusion>
-					<groupId>commons-logging</groupId>
-					<artifactId>commons-logging</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring.data.version}</version>			
 		</dependency>
-
+		
+		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -57,56 +38,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.fw.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.fw.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>${spring.fw.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.fw.version}</version>
-		</dependency>
-
-		<!-- Spring Data -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>${spring.data.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>spring-tx</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.fw.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.fw.version}</version>
-		</dependency>
-
+		<!-- Hibernate/Database -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -120,52 +52,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>net.sf.dozer</groupId>
-			<artifactId>dozer</artifactId>
-			<version>${dozer.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>${h2db.version}</version>
-		</dependency>
-
-		<!-- Spring security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>${mockito.version}</version>
-			<scope>test</scope>
 		</dependency>
 		
 		<!-- CXF WS/RS -->
@@ -174,16 +63,27 @@
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>${apache.cxf.version}</version>
 		</dependency>
+		
+		<!-- Utilities -->
 		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http</artifactId>
-			<version>${apache.cxf.version}</version>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
 		</dependency>
+	
+		<!-- Test -->
 		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-transports-http-jetty</artifactId>
-			<scope>provided</scope>
-			<version>${apache.cxf.version}</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${springtest.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 	</dependencies>
