@@ -1,4 +1,4 @@
-package se.kentor.lab.storagecell.service.impl;
+package se.kentor.lab.storagecell.core.service.impl;
 
 import java.util.List;
 import java.util.Random;
@@ -9,10 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import se.kentor.lab.storagecell.app.model.Box;
 import se.kentor.lab.storagecell.app.model.Cell;
-import se.kentor.lab.storagecell.model.entity.CellEntity;
-import se.kentor.lab.storagecell.model.repository.CellRepo;
-import se.kentor.lab.storagecell.service.IStorageCellService;
-import se.kentor.lab.storagecell.util.EntityBeanConverter;
+import se.kentor.lab.storagecell.core.model.entity.CellEntity;
+import se.kentor.lab.storagecell.core.model.repository.CellRepo;
+import se.kentor.lab.storagecell.core.service.IStorageCellService;
+import se.kentor.lab.storagecell.core.util.EntityBeanConverter;
 
 /**
  * @author muqkha

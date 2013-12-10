@@ -1,4 +1,4 @@
-package se.kentor.lab.storagecell.model.entity;
+package se.kentor.lab.storagecell.core.model.entity;
 
 import java.util.LinkedList;
 import java.util.List;

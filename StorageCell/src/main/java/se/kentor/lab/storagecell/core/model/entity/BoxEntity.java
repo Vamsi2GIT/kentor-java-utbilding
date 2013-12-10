@@ -1,4 +1,4 @@
-package se.kentor.lab.storagecell.model.entity;
+package se.kentor.lab.storagecell.core.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

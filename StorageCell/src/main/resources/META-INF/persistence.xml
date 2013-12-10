@@ -5,8 +5,8 @@
         version="2.0">
 
         <persistence-unit name="storage-cell-pu" transaction-type="RESOURCE_LOCAL">
-                <class>se.kentor.lab.storagecell.model.entity.BoxEntity</class>
-                <class>se.kentor.lab.storagecell.model.entity.CellEntity</class>
+                <class>se.kentor.lab.storagecell.core.model.entity.BoxEntity</class>
+                <class>se.kentor.lab.storagecell.core.model.entity.CellEntity</class>
         </persistence-unit>
 
 </persistence>

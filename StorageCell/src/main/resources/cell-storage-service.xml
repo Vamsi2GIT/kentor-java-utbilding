@@ -40,9 +40,9 @@
 	
 	<beans>
 		<context:annotation-config />		
-		<context:component-scan base-package="se.kentor.lab.storagecell.service.impl" />			
+		<context:component-scan base-package="se.kentor.lab.storagecell.core.service.impl" />			
 		<task:annotation-driven />		
-		<jpa:repositories base-package="se.kentor.lab.storagecell.model.repository" />
+		<jpa:repositories base-package="se.kentor.lab.storagecell.core.model.repository" />
 		<tx:annotation-driven />
 		<tx:advice id="txAdvice" transaction-manager="transactionManager" />
 	</beans>

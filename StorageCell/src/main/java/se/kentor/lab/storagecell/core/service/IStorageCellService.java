@@ -1,4 +1,4 @@
-package se.kentor.lab.storagecell.service;
+package se.kentor.lab.storagecell.core.service;
 
 import java.util.List;
 

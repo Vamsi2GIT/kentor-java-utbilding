@@ -1,10 +1,10 @@
-package se.kentor.lab.storagecell.model.repository;
+package se.kentor.lab.storagecell.core.model.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import se.kentor.lab.storagecell.model.entity.CellEntity;
+import se.kentor.lab.storagecell.core.model.entity.CellEntity;
 
 /**
  * @author muqkha

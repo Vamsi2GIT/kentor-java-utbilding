@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import se.kentor.lab.storagecell.service.IStorageCellService;
+import se.kentor.lab.storagecell.core.service.IStorageCellService;
 
 /**
  * @author muqkha

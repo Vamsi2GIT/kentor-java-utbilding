@@ -1,4 +1,4 @@
-package se.kentor.lab.storagecell.util;
+package se.kentor.lab.storagecell.core.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.dozer.Mapper;
 
 import se.kentor.lab.storagecell.app.model.Box;
 import se.kentor.lab.storagecell.app.model.Cell;
-import se.kentor.lab.storagecell.model.entity.BoxEntity;
-import se.kentor.lab.storagecell.model.entity.CellEntity;
+import se.kentor.lab.storagecell.core.model.entity.BoxEntity;
+import se.kentor.lab.storagecell.core.model.entity.CellEntity;
 
 /**
  * @author muqkha
