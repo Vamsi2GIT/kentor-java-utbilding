@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+	<beans>
+		<context:property-placeholder location="classpath:/application.properties,file:///${user.home}/.application-prod.properties"
+			ignore-unresolvable="true" ignore-resource-not-found="true"/>
+
+		<bean id="org.h2.tools.Server-WebServer" class="org.h2.tools.Server"
+			factory-method="createWebServer" init-method="start" destroy-method="shutdown">
+			<constructor-arg value="-web,-webAllowOthers,-webPort,${embedded-db.port}" />
+		</bean>
+
+		<bean id="jpaProperties"
+			class="org.springframework.beans.factory.config.MapFactoryBean">
+			<property name="sourceMap">
+				<map>
+					<entry key="hibernate.dialect" value="${database.dialect}" />
+					<entry key="hibernate.show_sql" value="${database.show-sql}" />
+					<entry key="hibernate.format_sql" value="${database.format-sql}" />
+					<entry key="hibernate.connection.pool_size" value="1" />
+					<entry key="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider" />
+					<entry key="hibernate.hbm2ddl.auto" value="${database.updateStrategy}" />
+				</map>
+			</property>
+		</bean>
+
+	</beans>
+	
+	<beans>
+		<context:annotation-config />		
+		<context:component-scan base-package="se.kentor.lab.storagecell.core.service.impl" />			
+		<task:annotation-driven />		
+		<jpa:repositories base-package="se.kentor.lab.storagecell.core.model.repository" />
+		<tx:annotation-driven />
+		<tx:advice id="txAdvice" transaction-manager="transactionManager" />
+	</beans>
+
+
+	<beans>
+		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+			<property name="driverClassName" value="${database.driver}" />
+			<property name="url" value="${database.url}" />
+			<property name="username" value="${database.username}" />
+			<property name="password" value="${database.password}" />
+			<property name="defaultAutoCommit" value="false" />
+			<property name="testOnBorrow" value="true" />
+			<property name="validationQuery" value="select null" />
+		</bean>
+
+		<bean id="entityManagerFactory"
+			class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+			<property name="dataSource" ref="dataSource" />
+			<property name="persistenceUnitName" value="storage-cell-pu" />
+			<property name="jpaVendorAdapter">
+				<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+					<property name="database" value="${database.vendor}" />
+					<property name="showSql" value="${database.show-sql}" />
+					<property name="generateDdl" value="true" />
+				</bean>
+			</property>
+			<property name="jpaPropertyMap" ref="jpaProperties" />
+		</bean>
+
+		<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+			<property name="entityManagerFactory" ref="entityManagerFactory" />
+		</bean>
+	</beans>
+</beans>
