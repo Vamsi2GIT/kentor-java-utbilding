@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-
-    Copyright (c) 2013 SLL. <http://sll.se>
-
-    This file is part of Invoice-Data.
-
-        Invoice-Data is free software: you can redistribute it and/or modify
-        it under the terms of the GNU Lesser General Public License as published by
-        the Free Software Foundation, either version 3 of the License, or
-        (at your option) any later version.
-
-        Invoice-Data is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-        GNU Lesser General Public License for more details.
-
-        You should have received a copy of the GNU Lesser General Public License
-        along with Invoice-Data.  If not, see <http://www.gnu.org/licenses/lgpl.txt>.
-
--->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -59,13 +39,9 @@
 	</beans>
 	
 	<beans>
-		<context:annotation-config />
-		
-		<context:component-scan
-			base-package="se.kentor.lab.storagecell.service.impl" />
-			
-		<task:annotation-driven />
-		
+		<context:annotation-config />		
+		<context:component-scan base-package="se.kentor.lab.storagecell.service.impl" />			
+		<task:annotation-driven />		
 		<jpa:repositories base-package="se.kentor.lab.storagecell.model.repository" />
 		<tx:annotation-driven />
 		<tx:advice id="txAdvice" transaction-manager="transactionManager" />
@@ -100,19 +76,5 @@
 		<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 			<property name="entityManagerFactory" ref="entityManagerFactory" />
 		</bean>
-<!-- 
-		<bean id="messageSource"
-			class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-			<property name="defaultEncoding" value="UTF-8" />
-			<property name="basenames">
-				<list>
-					<value>classpath:error_messages</value>
-				</list>
-			</property>
-		</bean>
-
-		 -->
-
 	</beans>
-
 </beans>

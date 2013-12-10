@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.app.rs;
 
 import java.util.List;
@@ -17,12 +14,8 @@ import se.kentor.lab.storagecell.app.model.Cell;
  */
 @Path("/")
 public interface IStorageCellWeb {
-	/**
-     * Returns all price lists.
-     *  
-     * @return all price lists, or emoty if none exists.
-     */
-    @GET
+
+	@GET
     @Produces("application/json")
     @Path("/allCells")
     List<Cell> getAllCells();
@@ -37,5 +30,4 @@ public interface IStorageCellWeb {
     @Path("/allOccupiedCells")
     List<Cell> getAllOccupiedCells();
 
-    
 }

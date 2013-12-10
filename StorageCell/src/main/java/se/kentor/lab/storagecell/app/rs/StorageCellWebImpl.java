@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.app.rs;
 
 import java.util.List;

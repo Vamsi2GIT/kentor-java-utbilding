@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.service.impl;
 
 import org.junit.Assert;

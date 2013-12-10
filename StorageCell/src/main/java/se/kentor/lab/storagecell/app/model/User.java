@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.app.model;
 
 import javax.xml.bind.annotation.XmlAccessType;

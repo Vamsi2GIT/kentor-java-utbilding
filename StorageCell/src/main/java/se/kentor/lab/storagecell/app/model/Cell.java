@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.app.model;
 
 import java.util.ArrayList;

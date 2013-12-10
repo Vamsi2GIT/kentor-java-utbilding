@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.model.entity;
 
 import java.util.LinkedList;

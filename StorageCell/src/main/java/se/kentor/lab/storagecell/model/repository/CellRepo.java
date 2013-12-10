@@ -1,6 +1,3 @@
-/**
- * 
- */
 package se.kentor.lab.storagecell.model.repository;
 
 import java.util.List;
