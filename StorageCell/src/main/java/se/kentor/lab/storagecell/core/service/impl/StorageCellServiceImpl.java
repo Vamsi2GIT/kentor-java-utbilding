@@ -25,7 +25,7 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	@Autowired
 	private CellRepo cellRepo;
 	
-	private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	private static final String ALPHA_NUMERIC_STRING = "ÄÖÅABCDEFGHIJKLMNOPQRSTUVWXYZÅÖÄ0123456789";
 	static Random random = new Random(System.currentTimeMillis());
 	
 	public static String genRandomAlphaNData(int count) {
