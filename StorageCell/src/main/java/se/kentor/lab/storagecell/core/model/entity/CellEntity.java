@@ -21,7 +21,6 @@ import javax.persistence.OneToMany;
 public class CellEntity implements Comparable<CellEntity> {
 
 	static final String TABLE_NAME = "cell";
-	static final String INDEX_NAME = "cell_index";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

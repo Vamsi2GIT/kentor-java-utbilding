@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,9 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	
 	@Autowired
 	private CellRepo cellRepo;
+	
+	@Value("${cell.maxNbr:50}")
+	private int maxNbrOfCells;
 	
 	private static final String ALPHA_NUMERIC_STRING = "ÄÖÅABCDEFGHIJKLMNOPQRSTUVWXYZÅÖÄ0123456789";
 	static Random random = new Random(System.currentTimeMillis());
@@ -57,10 +61,9 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	
 	@Override
 	public void prepareCellStorage() {
-		int size = 50;
-		System.out.println("Preparing data for the application!!!! " + size);
+		System.out.println("Preparing data for the application!!!! " + maxNbrOfCells);
 		
-		for (int i = 0; i <  size; i++) {
+		for (int i = 0; i <  maxNbrOfCells; i++) {
 			Cell cell = new Cell();
 			cell.setLocation(genRandomAlphaNData(10));
 			cell.setWidth(getRandomInt(10, 100));
