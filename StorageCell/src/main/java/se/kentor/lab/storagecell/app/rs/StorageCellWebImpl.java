@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import se.kentor.lab.storagecell.app.model.Box;
 import se.kentor.lab.storagecell.app.model.Cell;
 import se.kentor.lab.storagecell.core.service.IStorageCellService;
 
@@ -36,8 +37,13 @@ public class StorageCellWebImpl implements IStorageCellWeb {
 	}
 
 	@Override
-	public Cell getCellById(Long id) {
+	public Cell getByCellId(Long id) {
 		return iStorageCellServ.getCell(id);
+	}
+	
+	@Override
+	public Box getByBoxId(Long cellId, Long boxId) {
+		return iStorageCellServ.getBox(cellId, boxId);
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import se.kentor.lab.storagecell.app.model.Box;
 import se.kentor.lab.storagecell.app.model.Cell;
 import se.kentor.lab.storagecell.core.model.entity.CellEntity;
+import se.kentor.lab.storagecell.core.model.repository.BoxRepo;
 import se.kentor.lab.storagecell.core.model.repository.CellRepo;
 import se.kentor.lab.storagecell.core.service.IStorageCellService;
 import se.kentor.lab.storagecell.core.util.EntityBeanConverter;
@@ -25,6 +26,9 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	
 	@Autowired
 	private CellRepo cellRepo;
+	
+	@Autowired
+	private BoxRepo boxRepo;
 	
 	@Value("${cell.maxNbr:50}")
 	private int maxNbrOfCells;
@@ -93,6 +97,11 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	@Override
 	public List<Cell> getAllCells() {
 		return EntityBeanConverter.fromCellEntity(cellRepo.findAll());
+	}
+
+	@Override
+	public Box getBox(Long cellId, Long boxId) {
+		return EntityBeanConverter.fromEntity(boxRepo.findByIdAndCellId(boxId, cellId));
 	}
 
 }

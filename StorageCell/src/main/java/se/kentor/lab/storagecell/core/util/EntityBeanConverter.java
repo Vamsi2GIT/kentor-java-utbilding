@@ -47,6 +47,11 @@ public class EntityBeanConverter {
 		return cell;
 	}
 	
+	public static Box fromEntity(final BoxEntity boxEntity) {
+		final Box box = copyProperties(boxEntity, Box.class);
+		return box;
+	}
+	
 	 /**
      * Copies lists items.
      * 
