@@ -17,7 +17,6 @@ import javax.persistence.ManyToOne;
 public class BoxEntity implements Comparable<BoxEntity>{
 	
 	static final String TABLE_NAME = "box";
-	static final String INDEX_NAME = "box_index";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
