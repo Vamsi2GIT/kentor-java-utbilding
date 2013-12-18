@@ -2,6 +2,8 @@ package se.kentor.lab.storagecell.app.rs;
 
 import java.util.List;
 
+import javax.ws.rs.WebApplicationException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import se.kentor.lab.storagecell.app.model.Box;
@@ -22,33 +24,35 @@ public class StorageCellWebImpl implements IStorageCellWeb {
 		return iStorageCellServ.getAllCells();
 	}
 
-	@Override
-	public List<Cell> getAvailableCells() {
-		return iStorageCellServ.getAvailableCells();
-	}
-
-	@Override
-	public List<Cell> getAllOccupiedCells() {
-		return iStorageCellServ.getOccupiedCells();
-	}
-	
 	public void init() {
 		iStorageCellServ.prepareCellStorage();
 	}
 
 	@Override
 	public Cell getByCellId(Long id) {
-		return iStorageCellServ.getCell(id);
+		try {
+			return iStorageCellServ.getCell(id);
+		} catch (NullPointerException npE) {
+			throw new WebApplicationException(400);
+		}		
 	}
 	
 	@Override
 	public Box getByBoxId(Long cellId, Long boxId) {
-		return iStorageCellServ.getBox(cellId, boxId);
+		try {
+			return iStorageCellServ.getBox(cellId, boxId);
+		} catch (NullPointerException npE) {
+			throw new WebApplicationException(400);
+		}		
 	}
 
 	@Override
 	public Cell getByCellIdWithBoxes(Long id) {
-		return getByCellId(id);
+		try {
+			return getByCellId(id);
+		} catch (NullPointerException npE) {
+			throw new WebApplicationException(400);
+		}		
 	}
 	
 }
