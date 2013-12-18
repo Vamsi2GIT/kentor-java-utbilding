@@ -47,8 +47,7 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	 
 	@Override
 	public Cell getCell(Long id) {
-		
-		return null;
+		return EntityBeanConverter.fromEntity(cellRepo.findOne(id));
 	}
 
 	@Override
@@ -95,7 +94,5 @@ public class StorageCellServiceImpl implements IStorageCellService {
 	public List<Cell> getAllCells() {
 		return EntityBeanConverter.fromCellEntity(cellRepo.findAll());
 	}
-	
-		
 
 }

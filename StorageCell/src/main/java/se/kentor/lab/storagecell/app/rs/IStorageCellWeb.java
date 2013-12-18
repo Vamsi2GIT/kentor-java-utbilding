@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import se.kentor.lab.storagecell.app.model.Cell;
@@ -29,5 +30,11 @@ public interface IStorageCellWeb {
     @Produces("application/json")
     @Path("/allOccupiedCells")
     List<Cell> getAllOccupiedCells();
+    
+    @GET
+    //@Produces(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
+    @Path("/cell/{id}")
+    Cell getCellById(@PathParam("id") Long id);
 
 }

@@ -34,6 +34,10 @@ public class StorageCellWebImpl implements IStorageCellWeb {
 	public void init() {
 		iStorageCellServ.prepareCellStorage();
 	}
-	
 
+	@Override
+	public Cell getCellById(Long id) {
+		return iStorageCellServ.getCell(id);
+	}
+	
 }
