@@ -45,5 +45,10 @@ public class StorageCellWebImpl implements IStorageCellWeb {
 	public Box getByBoxId(Long cellId, Long boxId) {
 		return iStorageCellServ.getBox(cellId, boxId);
 	}
+
+	@Override
+	public Cell getByCellIdWithBoxes(Long id) {
+		return getByCellId(id);
+	}
 	
 }

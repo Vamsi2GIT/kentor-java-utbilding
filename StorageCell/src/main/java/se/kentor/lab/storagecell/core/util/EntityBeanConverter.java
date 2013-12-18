@@ -31,19 +31,17 @@ public class EntityBeanConverter {
 		for (final Box item : cell.getBoxes()) {
 			entity.addBoxEntity(copyProperties(item, BoxEntity.class));
 		}
-
 		return entity;
 	}
 	
 	public static <T> T copyProperties(Object source, Class<T> targetSpec) {
+		if (source == null) throw new NullPointerException("Object requested does not exists!");
         return mapper.map(source, targetSpec);
     }
 	
 	public static Cell fromEntity(final CellEntity cellEntity) {
 		final Cell cell = copyProperties(cellEntity, Cell.class);
-
 		copyGenericLists(cell.getBoxes(), cellEntity.getBoxEntities(), Box.class);
-
 		return cell;
 	}
 	

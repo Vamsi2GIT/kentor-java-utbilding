@@ -19,28 +19,31 @@ public interface IStorageCellWeb {
 
 	@GET
     @Produces("application/json")
-    @Path("/allCells")
+    @Path("/cells")
     List<Cell> getAllCells();
     
     @GET
     @Produces("application/json")
-    @Path("/allAvailableCells")
+    @Path("/availableCells")
     List<Cell> getAvailableCells();
     
     @GET
     @Produces("application/json")
-    @Path("/allOccupiedCells")
+    @Path("/occupiedCells")
     List<Cell> getAllOccupiedCells();
     
     @GET
-    //@Produces(MediaType.APPLICATION_JSON)
     @Produces("application/json")
-    @Path("/cell/{id}")
+    @Path("/{type}/{id}")
     Cell getByCellId(@PathParam("id") Long id);
     
     @GET
-    //@Produces(MediaType.APPLICATION_JSON)
     @Produces("application/json")
-    @Path("/cell/{cellId}/boxes/{boxId}")
+    @Path("/{type}/{id}/boxes")
+    Cell getByCellIdWithBoxes(@PathParam("id") Long id);
+    
+    @GET
+    @Produces("application/json")
+    @Path("/{type}/{cellId}/box/{boxId}")
     Box getByBoxId(@PathParam("cellId") Long cellId, @PathParam("boxId") Long boxId);
 }
