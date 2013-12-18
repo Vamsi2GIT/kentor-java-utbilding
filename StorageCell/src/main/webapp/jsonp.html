@@ -15,8 +15,19 @@
 		
 $(document).ready(function () {
 
+$.getJSON("http://127.0.0.1:8080/storagecell/service/allCells?_=1387362736812", function(data){ var tableOptions = {
+			'aaData': data.cell,
+			'aoColumns': [
+				{ "mData": "id" },
+				{ "mData": "width" },
+				{ "mData": "location" },
+				{ "mData": "occupied" }
+			]};
+		$('#example').dataTable(tableOptions); });
 
 
+
+});
 
 $.ajax(
 	{	url: "http://127.0.0.1:8080/storagecell/service/allCells",
@@ -27,11 +38,16 @@ $.ajax(
 		var tableOptions = {
 			'aaData': data.cell,
 			'aoColumns': [
-				{ "mData": "id" },
-				{ "mData": "width" },
-				{ "mData": "location" },
-				{ "mData": "occupied" }
-			]};
+				{ "mDataProp": "id" },
+				{ "mDataProp": "width" },
+				{ "mDataProp": "location" },
+				{ "mDataProp": "occupied" },
+				{ "mDataProp": "boxes.length" }
+				],
+			"bRetrieve": true,
+			"type": "jsonp"
+			 
+			};
 		$('#example').dataTable(tableOptions);
 		},
 		error: function (requestError, strError) { alert(requestError, strError); }
@@ -39,7 +55,7 @@ $.ajax(
 
 
 
-});
+
 		</script>
 	</head>
 	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
@@ -49,20 +65,16 @@ $.ajax(
 			<th width="25%">Width</th>
 			<th width="25%">location</th>
 			<th width="15%">occupied</th>
-			
+			<th width="15%"># of boxes</th>
 		</tr>
 	</thead>
 	<tbody>
-		
+
+                
+
 	</tbody>
 	<tfoot>
-		<tr>
-			<th>Rendering engine</th>
-			<th>Browser</th>
-			<th>Platform(s)</th>
-			<th>Engine version</th>
-			
-		</tr>
+
 	</tfoot>
 </table>		
 			
